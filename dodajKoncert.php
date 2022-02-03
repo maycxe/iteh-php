@@ -8,10 +8,15 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <script src="js/jquerry.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
     <title>Koncerti</title>
 </head>
@@ -27,22 +32,22 @@
         <div class="row text-center m-4">
             <div class="col-4"></div>
             <div class="col-4">
-                <form method="POST" action="dodavanje.php">
+                <form method="POST" action="create.php">
                     <div class="form-group">
-                        <label for="imeIzvodjaca" class="form-label">Ime Izvođača:</label>
+                        <label for="imeIzvodjaca" class="form-label text-light">Ime Izvođača:</label>
                         <input type="text" class="form-control" id="imeIzvodjaca" name="imeIzvodjaca" aria-describedby="imeIzvodjaca">
                     </div>
                     <div class="form-group">
-                        <label for="datumKoncerta" class="form-label">Datum Koncerta:</label>
+                        <label for="datumKoncerta" class="form-label text-light">Datum Koncerta:</label>
                         <input type="date" class="form-control" id="datumKoncerta" name="datumKoncerta" aria-describedby="datumKoncerta">
                     </div>
                     <div class="form-group">
-                        <label for="vremeKoncerta" class="form-label">Vreme Koncerta:</label>
+                        <label for="vremeKoncerta" class="form-label text-light">Vreme Koncerta:</label>
                         <input type="time" class="form-control" id="vremeKoncerta" name="vremeKoncerta" aria-describedby="vremeKoncerta">
                     </div>
 
                     <div class="form-group">
-                        <select class="custom-select" name="arena">
+                        <select class="form-control" name="arena">
                             <option value="0" selected>Odaberite Arenu</option>
                             <?php
                             $query = "SELECT * FROM arena";
@@ -62,30 +67,8 @@
                         </select>
                     </div>
 
-                    <input type="submit" class="btn btn-primary" id="dodajKoncert" name="dodajKoncert" value="Dodaj Koncert">
+                    <input type="submit" class="btn btn-primary btn-block" id="dodajKoncert" name="dodajKoncert" value="Dodaj Koncert">
                 </form>
-
-                <?php
-                /*
-                if (isset($_POST['dodajKoncert'])) {
-                    $imeIzvodjaca = $_POST['imeIzvodjaca'];
-                    $idArene = $_POST['arena'];
-                    $datum = $_POST['datumKoncerta'];
-                    $vreme = $_POST['vremeKoncerta'];
-
-                    $querry = "INSERT INTO koncerti (id, izvodjac, datum, vreme, arenaID) VALUES (NULL, '$imeIzvodjaca', '$datum', '$vreme', '$idArene');";
-                    $result = mysqli_query($conn, $querry);
-
-                    echo <<< EOD
-                        <div class="alert alert-success m-4" role="alert">
-                            Uspešno ste dodali novi koncert!
-                        </div>
-                    EOD;
-
-                    $_POST['imeIzvodjaca'] = null;
-                }
-                */
-                ?>
 
                 <p id="message"></p>
             </div>
@@ -102,7 +85,7 @@
             var vremeKoncerta = $("#vremeKoncerta").val().trim();
             var arena = $("#arena").val().trim();
             $.ajax({
-                url: 'dodavanje.php',
+                url: 'create.php',
                 type: 'post',
                 data: {
                     imeIzvodjaca: izvodjac,
@@ -112,7 +95,7 @@
                 },
                 dataType: "json",
                 encode: true,
-            }).done(function (data){
+            }).done(function(data) {
                 console.log(data);
             });
 

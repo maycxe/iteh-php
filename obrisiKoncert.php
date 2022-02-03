@@ -8,10 +8,15 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <script src="js/jquerry.js"></script>
+
+     <!-- Fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
     <title>Koncerti</title>
 </head>
@@ -28,7 +33,7 @@
         <div class="col-4 p-4">
             <form method="POST" action="obrisiKoncert.php">
                 <div class="form-group">
-                    <label for="listaKoncerata">Odaberite koncerte koje želite da obrišete:</label>
+                    <label for="listaKoncerata" class="form-label text-light">Odaberite koncerte koje želite da obrišete:</label>
                     <select multiple class="form-control" id="listaKoncerata" name="listaKoncerata[]" size="10">
 
                         <?php
@@ -50,7 +55,7 @@
                     </select>
                 </div>
 
-                <input type="submit" class="btn btn-primary" name="obrisiKoncerte" id="obrisiKoncerte" value="Obriši koncerte">
+                <input type="submit" class="btn btn-primary btn-block" name="obrisiKoncerte" id="obrisiKoncerte" value="Obriši koncerte">
             </form>
 
         </div>

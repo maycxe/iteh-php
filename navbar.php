@@ -44,10 +44,10 @@ function logout()
 }
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="glavniNav">
     <div class="container-fluid">
 
-        <a class="navbar-brand" href="#">Svet Koncerata</a>
+        <a class="navbar-brand text-light" id="brand" href="#">MUSIX</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,33 +55,23 @@ function logout()
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php">Pocetna</a>
+                    <a class="nav-link text-light" href="index.php">Početna</a>
                 </li>
                 <?php
                 if ($_SESSION['isLoggedIn']) {
                     echo <<< EOD
                     <li class="nav-item">
-                        <a class='nav-link' href='dodajKoncert.php'>Dodaj Koncert</a>
+                        <a class='nav-link text-light' href='dodajKoncert.php'>Dodaj Koncert</a>
                     </li>
                     <li class="nav-item">
-                        <a class='nav-link' href='izmeniKoncert.php'>Izmeni Koncert</a>
+                        <a class='nav-link text-light' href='izmeniKoncert.php'>Izmeni Koncert</a>
                     </li>
                     <li class="nav-item">
-                        <a class='nav-link' href='obrisiKoncert.php'>Obriši Koncert</a>
+                        <a class='nav-link text-light' href='obrisiKoncert.php'>Obriši Koncert</a>
                     </li>
                     EOD;
-                } else
-                    echo <<< EOD
-                    <li class="nav-item">
-                        <a class='nav-link disabled' href='dodajKoncert.php' tabindex='-1' aria-disabled='true'>Dodaj Koncert</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class='nav-link disabled' href='izmeniKoncert.php' tabindex='-1' aria-disabled='true'>Izmeni Koncert</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class='nav-link disabled' href='obrisiKoncert.php' tabindex='-1' aria-disabled='true'>Obriši Koncert</a>
-                    </li>
-                    EOD;
+                } 
+
                 ?>
                 </li>
             </ul>
@@ -92,17 +82,17 @@ function logout()
                     echo <<< EOD
                 <input class="form-control mr-sm-2" type="text" placeholder="Username" name="username">
                 <input class="form-control mr-sm-2" type="password" placeholder="Password" name="password">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="login">Login</button>      
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit" name="login">Login</button>      
                 EOD;
                 } else {
-                    $user = $_SESSION['currentUserName'] . " " . $_SESSION['currentUserLastname'];
+                    $user = $_SESSION['currentUserName'];
                     echo <<< EOD
-                <nav class="navbar navbar-light bg-light">
-                <span class="navbar-text" style="margin-rigth: 20px;">
+               
+                <span class="navbar-text text-light" style="padding-right: 20px;">
                 Ulogovani ste kao $user
                 </span>
-                </nav>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="logout">Logout</button>      
+            
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit" name="logout">Logout</button>      
                 EOD;
                 }
                 ?>
