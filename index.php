@@ -99,8 +99,8 @@
                             $datumTime = strtotime($datum);
 
                             echo <<< EOD
-                            <div class="col-sm-4 d-flex align-items-stretch">
-                                <div class="card mb-3" style="min-width: 10rem;">
+                            <div class="col-sm-4">
+                                <div class="card mb-3" style="min-width: 10rem; min-height: 300px;">
                                     <div class="card-body">
                                         <h5 class="card-title">$imeIzvodjaca</h5>
                                         <p class="time" style="display: none;">$datumTime</p>
